@@ -24,7 +24,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: viar/web-app:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/ci-cd-test:latest
 
       - name: Verify Pushed Image
-        run: docker pull viar/web-app:latest
+        run: docker pull ${{ secrets.DOCKER_USERNAME }}/ci-cd-test:latest
