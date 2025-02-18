@@ -9,15 +9,6 @@ jobs:
   build-and-push:
     runs-on: ubuntu-latest
     steps:
-      - name: Check if Docker Username is available
-        run: |
-          if [ -z "${{ secrets.DOCKERHUB_USERNAME }}" ]; then
-            echo "Error: Docker Username not set!"
-            exit 1
-          else
-            echo "Docker Username is set." ${{ secrets.DOCKERHUB_USERNAME }}
-          fi
-
       - name: Check Out Repo
         uses: actions/checkout@v2
 
