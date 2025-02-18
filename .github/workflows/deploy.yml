@@ -9,6 +9,9 @@ jobs:
   build-and-push:
     runs-on: ubuntu-latest
     steps:
+      - name: Debug Docker Username
+        run: echo "Docker Username: ${{ secrets.DOCKERHUB_USERNAME }}"
+
       - name: Check Out Repo
         uses: actions/checkout@v2
 
@@ -27,4 +30,4 @@ jobs:
           tags: ${{ secrets.DOCKER_USERNAME }}/ci-cd-test:latest
 
       - name: Verify Pushed Image
-        run: docker pull ${{ secrets.DOCKER_USERNAME }}/ci-cd-test:latest
+        run: docker pull ${{ secrets.DOCKERHUB_USERNAME }}/ci-cd-test:latest
