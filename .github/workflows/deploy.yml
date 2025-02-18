@@ -15,7 +15,7 @@ jobs:
             echo "Error: Docker Username not set!"
             exit 1
           else
-            echo "Docker Username is set."
+            echo "Docker Username is set." ${{ secrets.DOCKERHUB_USERNAME }}
           fi
 
       - name: Check Out Repo
